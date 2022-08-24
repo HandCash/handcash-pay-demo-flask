@@ -10,7 +10,7 @@ You can find more at [HandCash for developers](https://docs.handcash.io).
 ### Start the server
 Start the Flask server:
 ```shell script
-flask --app main --debug run
+flask --debug run
 ```
 
 ### Create a payment request
