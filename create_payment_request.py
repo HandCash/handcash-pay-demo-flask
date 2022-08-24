@@ -14,13 +14,13 @@ headers = {
 url = "https://cloud.handcash.io/v2/paymentRequests"
 payload = {
     "product": {
-        "name": "Water · 500 ml",
-        "description": "500ml of filtered water",
+        "name": "Water · 200 ml",
+        "description": "200ml of filtered water",
         "imageUrl": "https://www.indywaterpros.com/hs-fs/hubfs/2019-0~3-min.jpg?width=600&name=2019-0~3-min.jpg"
     },
     "receivers": [
         {
-            "sendAmount": 0.5,
+            "sendAmount": 0.2,
             "currencyCode": "USD",
             "destination": "rjseibane"
         }
@@ -29,8 +29,8 @@ payload = {
     "notifications": {
         "webhook": {
             "customParameters": {
-                "fountainId": "1002913",
-                "productId": "00006"
+                "fountainId": "madrid-0018",
+                "productId": "00002"
             },
             "webhookUrl": "https://glacial-mountain-91065.herokuapp.com/webhooks/handcash"
         },

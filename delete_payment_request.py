@@ -7,7 +7,7 @@ headers = {
     "app-id": Credentials.app_id,
 }
 
-payment_request_id = '63066ea23838df4cfab21076'
+payment_request_id = '63066f260cc14e2785faa5cf'
 url = f"https://cloud.handcash.io/v2/paymentRequests/{payment_request_id}"
 
 response = requests.delete(url, headers=headers)

@@ -84,17 +84,17 @@
                     </td>
 
                     <td class="table-cell col-span-3 flex flex-wrap">
-                        {% if 'paymail' in payment.requestedUserData %}
+                        {% if 'paymail' in payment.userData %}
                         <span class="mr-2 mb-2 bg-stone-200 px-3 py-1 text-stone-800 text-sm rounded-md">
-                                    {{ payment.requestedUserData.paymail }}</span>
+                                    {{ payment.userData.paymail }}</span>
                         {% endif %}
-                        {% if 'email' in payment.requestedUserData %}
+                        {% if 'email' in payment.userData %}
                         <span class="mr-2 mb-2 bg-purple-200 px-3 py-1 text-purple-800 text-sm rounded-md">
-                                    {{ payment.requestedUserData.email }}</span>
+                                    {{ payment.userData.email }}</span>
                         {% endif %}
-                        {% if 'phoneNumber' in payment.requestedUserData %}
+                        {% if 'phoneNumber' in payment.userData %}
                         <span class="mr-2 mb-2 bg-teal-200 px-3 py-1 text-teal-800 text-sm rounded-md">
-                                    {{ payment.requestedUserData.phoneNumber }}</span>
+                                    {{ payment.userData.phoneNumber }}</span>
                         {% endif %}
                     </td>
                 </tr>
