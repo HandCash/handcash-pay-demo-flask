@@ -43,7 +43,7 @@
                 <thead class="border-b border-gray-200">
                 <tr class="table-row bg-indigo-100 text-left">
                     <th class="table-cell pl-4 py-3 rounded-tl-lg border-b border-indigo-200 text-xs font-semibold uppercase">
-                        <span>Payment Request ID</span>
+                        <span>Product name</span>
                     </th>
 
                     <th class="table-cell py-3 border-b border-indigo-200 text-xs font-semibold uppercase">
@@ -60,7 +60,7 @@
                 <tr class="hover:bg-slate-100">
                     <td class="table-cell py-4 px-4">
                         <a href="https://pay.handcash.io/{{payment.paymentRequestId}}" target="_blank"
-                           class="text-indigo-600 hover:text-indigo-500">{{ payment.paymentRequestId }}</a>
+                           class="text-indigo-600 hover:text-indigo-500">{{ payment.product.name }}</a>
                     </td>
 
                     <td class="table-cell overflow-hidden text-truncate">

@@ -13,27 +13,6 @@ headers = {
 }
 
 recent_payments = [
-    {
-        'paymentRequestId': '123123123132131',
-        'transactionId': '123123123132131',
-        'requestedUserData': {
-            'paymail': 'rafa@handcash.io'
-        }
-    },
-    {
-        'paymentRequestId': '123123123132131',
-        'transactionId': '123123123132131',
-        'requestedUserData': {
-            'paymail': 'rafa@handcash.io'
-        }
-    },
-    {
-        'paymentRequestId': '123123123132131',
-        'transactionId': '123123123132131',
-        'requestedUserData': {
-            'paymail': 'rafa@handcash.io'
-        }
-    }
 ]
 
 
