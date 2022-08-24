@@ -47,6 +47,16 @@
                         }} {{ paymentRequest.paymentAmount.currencyCode }}</p>
                 </div>
                 <p class="mt-1 text-sm text-gray-500">{{ paymentRequest.product.description }}</p>
+                {% if 'webhook' in paymentRequest.notifications %}
+                <div class="flex pt-4">
+                    {% for key, value in paymentRequest.notifications.webhook.customParameters.items() %}
+                    <div class="inline-flex flex-col mr-2 mb-2 bg-indigo-100 px-3 py-2 rounded-md">
+                        <span class="text-indigo-900 font-semibold text-xs">{{key}}</span>
+                        <span class="text-indigo-700 text-base">{{value}}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
             {% endfor %}
         </div>
@@ -93,7 +103,7 @@
                                     {{ payment.userData.email }}</span>
                         {% endif %}
                         {% if 'phoneNumber' in payment.userData %}
-                        <span class="mr-2 mb-2 bg-teal-200 px-3 py-1 text-teal-800 text-sm rounded-md">
+                        <span class="mr-2 mb-2 bg-teal-100 px-3 py-1 text-teal-800 text-sm rounded-md">
                                     {{ payment.userData.phoneNumber }}</span>
                         {% endif %}
                     </td>
