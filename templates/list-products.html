@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>o25 Demo</title>
+</head>
+<body>
+<div class="bg-gray-50">
+    <div class="bg-gray-50 max-w-2xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">My Products</h2>
+        <div class="mt-4 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {% for paymentRequest in paymentRequests %}
+            <div class="bg-white group relative p-4 rounded-lg border border-gray-500 shadow-md hover:shadow-xl">
+                <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden">
+                    <img src="{{paymentRequest.paymentRequestQrCode}}"
+                         alt="{{paymentRequest.paymentRequestUrl}}"
+                         class="w-full h-full object-center">
+                </div>
+                <div class="mt-2 flex justify-between items-baseline">
+                    <div>
+                        <h3 class="text-sm text-gray-700 font-medium">
+                            <a href="{{paymentRequest.paymentRequestUrl}}" target="_blank">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                {{ paymentRequest.product.name }}
+                            </a>
+                        </h3>
+                    </div>
+                    <p class="text-lg font-bold text-gray-900">{{ '%0.2f' | format(paymentRequest.paymentAmount.amount)
+                        }} {{ paymentRequest.paymentAmount.currencyCode }}</p>
+                </div>
+                <p class="mt-1 text-sm text-gray-500">{{ paymentRequest.product.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="mt-12 text-2xl font-bold tracking-tight text-gray-900">Recent payments</h2>
+        <p class="text-sm text-gray-500">Refresh to update</p>
+        <div class="mt-4 pb-2 mb-24 bg-white rounded-lg shadow-md border border-gray-500">
+            <table class="w-full rounded-lg">
+                <thead class="border-b border-gray-200">
+                <tr class="table-row bg-indigo-100 text-left">
+                    <th class="table-cell pl-4 py-3 rounded-tl-lg border-b border-indigo-200 text-xs font-semibold uppercase">
+                        <span>Payment Request ID</span>
+                    </th>
+
+                    <th class="table-cell py-3 border-b border-indigo-200 text-xs font-semibold uppercase">
+                        <span>Transaction ID</span>
+                    </th>
+
+                    <th class="table-cell py-3 rounded-tr-lg border-b border-indigo-200 text-xs font-semibold uppercase">
+                        <span>User Data</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="">
+                {% for payment in recentPayments %}
+                <tr class="hover:bg-slate-100">
+                    <td class="table-cell py-4 px-4">
+                        <a href="https://pay.handcash.io/{{payment.paymentRequestId}}" target="_blank"
+                           class="text-indigo-600 hover:text-indigo-500">{{ payment.paymentRequestId }}</a>
+                    </td>
+
+                    <td class="table-cell overflow-hidden text-truncate">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-500">{{ payment.transactionId }}</a>
+                    </td>
+
+                    <td class="table-cell col-span-3 flex flex-wrap">
+                        {% if 'paymail' in payment.requestedUserData %}
+                        <span class="mr-2 mb-2 bg-stone-200 px-3 py-1 text-stone-800 text-sm rounded-md">
+                                    {{ payment.requestedUserData.paymail }}</span>
+                        {% endif %}
+                        {% if 'email' in payment.requestedUserData %}
+                        <span class="mr-2 mb-2 bg-purple-200 px-3 py-1 text-purple-800 text-sm rounded-md">
+                                    {{ payment.requestedUserData.email }}</span>
+                        {% endif %}
+                        {% if 'phoneNumber' in payment.requestedUserData %}
+                        <span class="mr-2 mb-2 bg-teal-200 px-3 py-1 text-teal-800 text-sm rounded-md">
+                                    {{ payment.requestedUserData.phoneNumber }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
