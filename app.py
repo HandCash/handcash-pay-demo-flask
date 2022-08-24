@@ -49,7 +49,7 @@ def list_products():
     return response.text
 
 
-@app.route("/webhooks/handcash")
+@app.route("/webhooks/handcash", methods=["POST"])
 def on_payment_completed():
     data = request.json
     print(data)

@@ -32,12 +32,12 @@ payload = {
                 "fountainId": "1002913",
                 "productId": "00006"
             },
-            "webhookUrl": "https://www.o25.eu"
+            "webhookUrl": "https://glacial-mountain-91065.herokuapp.com/webhooks/handcash"
         },
         "email": "rafa@handcash.io"
     },
     "expirationType": "never",
-    "redirectUrl": "https://glacial-mountain-91065.herokuapp.com/webhooks/handcash"
+    "redirectUrl": "https://www.o25.eu"
 }
 response = requests.post(url, json=payload, headers=headers)
 
