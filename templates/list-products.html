@@ -8,7 +8,7 @@
     <title>o25 Demo</title>
 </head>
 <body>
-<div class="bg-gray-50">
+<div class="h-screen bg-gray-50">
     <div class="bg-gray-50 max-w-2xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-2xl font-bold tracking-tight text-gray-900">My Products</h2>
         {% if paymentRequests|length == 0 %}
@@ -59,7 +59,7 @@
                 <thead class="border-b border-gray-200">
                 <tr class="table-row bg-indigo-100 text-left">
                     <th class="table-cell pl-4 py-3 rounded-tl-lg border-b border-indigo-200 text-xs font-semibold uppercase">
-                        <span>Product name</span>
+                        <span>Payment Request ID</span>
                     </th>
 
                     <th class="table-cell py-3 border-b border-indigo-200 text-xs font-semibold uppercase">
@@ -76,7 +76,7 @@
                 <tr class="hover:bg-slate-100">
                     <td class="table-cell py-4 px-4">
                         <a href="https://pay.handcash.io/{{payment.paymentRequestId}}" target="_blank"
-                           class="text-indigo-600 hover:text-indigo-500">{{ payment.product.name }}</a>
+                           class="text-indigo-600 hover:text-indigo-500">{{ payment.paymentRequestId }}</a>
                     </td>
 
                     <td class="table-cell overflow-hidden text-truncate">
