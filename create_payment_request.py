@@ -14,13 +14,13 @@ headers = {
 url = "https://cloud.handcash.io/v2/paymentRequests"
 payload = {
     "product": {
-        "name": "Water · 250 ml",
-        "description": "250ml of filtered water",
+        "name": "Water · 500 ml",
+        "description": "500ml of filtered water",
         "imageUrl": "https://www.indywaterpros.com/hs-fs/hubfs/2019-0~3-min.jpg?width=600&name=2019-0~3-min.jpg"
     },
     "receivers": [
         {
-            "sendAmount": 0.25,
+            "sendAmount": 0.5,
             "currencyCode": "USD",
             "destination": "rjseibane"
         }
@@ -32,12 +32,12 @@ payload = {
                 "fountainId": "1002913",
                 "productId": "00006"
             },
-            "webhookUrl": "https://myservice.com/webhooks/handcash"
+            "webhookUrl": "https://www.o25.eu"
         },
         "email": "rafa@handcash.io"
     },
     "expirationType": "never",
-    "redirectUrl": "https://myservice.com/purchase/success"
+    "redirectUrl": "https://glacial-mountain-91065.herokuapp.com/webhooks/handcash"
 }
 response = requests.post(url, json=payload, headers=headers)
 
