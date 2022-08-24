@@ -11,6 +11,21 @@
 <div class="bg-gray-50">
     <div class="bg-gray-50 max-w-2xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-2xl font-bold tracking-tight text-gray-900">My Products</h2>
+        {% if paymentRequests|length == 0 %}
+        <div class="w-full max-w-[32rem] inline-flex justify-start items-center mt-4 p-6 bg-indigo-50/50 rounded-lg border border-indigo-500 text-center text-indigo-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path d="M5.223 2.25c-.497 0-.974.198-1.325.55l-1.3 1.298A3.75 3.75 0 007.5 9.75c.627.47 1.406.75 2.25.75.844 0 1.624-.28 2.25-.75.626.47 1.406.75 2.25.75.844 0 1.623-.28 2.25-.75a3.75 3.75 0 004.902-5.652l-1.3-1.299a1.875 1.875 0 00-1.325-.549H5.223z"/>
+                <path fill-rule="evenodd"
+                      d="M3 20.25v-8.755c1.42.674 3.08.673 4.5 0A5.234 5.234 0 009.75 12c.804 0 1.568-.182 2.25-.506a5.234 5.234 0 002.25.506c.804 0 1.567-.182 2.25-.506 1.42.674 3.08.675 4.5.001v8.755h.75a.75.75 0 010 1.5H2.25a.75.75 0 010-1.5H3zm3-6a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v3a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75v-3zm8.25-.75a.75.75 0 00-.75.75v5.25c0 .414.336.75.75.75h3a.75.75 0 00.75-.75v-5.25a.75.75 0 00-.75-.75h-3z"
+                      clip-rule="evenodd"/>
+            </svg>
+
+            <div class="ml-4">
+                <p class="text-left text-indigo-500 text-lg">Create your first payment request!</p>
+                <p class="text-left text-indigo-400 text-base">Your payment requests will show here.</p>
+            </div>
+        </div>
+        {% endif %}
         <div class="mt-4 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {% for paymentRequest in paymentRequests %}
             <div class="bg-white group relative p-4 rounded-lg border border-gray-500 shadow-md hover:shadow-xl">
@@ -38,6 +53,7 @@
 
         <h2 class="mt-12 text-2xl font-bold tracking-tight text-gray-900">Recent payments</h2>
         <p class="text-sm text-gray-500">Refresh to update</p>
+        {% if recentPayments|length > 0 %}
         <div class="mt-4 pb-2 mb-24 bg-white rounded-lg shadow-md border border-gray-500">
             <table class="w-full rounded-lg">
                 <thead class="border-b border-gray-200">
@@ -86,6 +102,21 @@
                 </tbody>
             </table>
         </div>
+        {% else %}
+        <div class="w-full max-w-[32rem] inline-flex justify-start items-center mt-4 p-6 bg-indigo-50/50 rounded-lg border border-indigo-500 text-center text-indigo-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path fill-rule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                      clip-rule="evenodd"/>
+            </svg>
+
+
+            <div class="ml-4">
+                <p class="text-left text-indigo-500 text-lg">Pay for any product above</p>
+                <p class="text-left text-indigo-400 text-base">Payment webhook notifications will show here.</p>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
 </body>

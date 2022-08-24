@@ -12,8 +12,7 @@ headers = {
     "app-id": Credentials.app_id
 }
 
-recent_payments = [
-]
+recent_payments = []
 
 
 @app.route("/")
@@ -32,5 +31,7 @@ def list_products():
 def on_payment_completed():
     data = request.json
     print(data)
-    recent_payments.insert(0, data)
-    return 'OK'
+    if data['appSecret'] != Credentials.app_secret:  # Make sure the request comes from HandCash
+        recent_payments.insert(0, data)
+        # You can trigger your own process on payment completed: unlock some content, send a custom email...
+        return 'OK'
