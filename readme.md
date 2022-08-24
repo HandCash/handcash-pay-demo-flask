@@ -1,19 +1,19 @@
-### HandCash Pay demo for Flask
+# HandCash Pay demo for Flask
 
-#### Getting started
+### Getting started
 Sign into the HandCash Dashboard an create an app. 
 
 Make sure you paste your `app-id` and `app-secret` into `config.py`.
 
 You can find more at [HandCash for developers](https://docs.handcash.io).
 
-#### Start the server
+### Start the server
 Start the Flask server:
 ```shell script
 flask --app main --debug run
 ```
 
-#### Create a payment request
+### Create a payment request
 1) Open `create_payment_request.py` 
 2) Edit the payload that contains all the properties for the payment request.
 ````python
