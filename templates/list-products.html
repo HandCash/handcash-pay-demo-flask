@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="h-screen bg-gray-50">
-    <div class="bg-gray-50 max-w-2xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="max-w-2xl mx-auto py-6 px-4 sm:py-6 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-2xl font-bold tracking-tight text-gray-900">My Products</h2>
         {% if paymentRequests|length == 0 %}
         <div class="w-full max-w-[32rem] inline-flex justify-start items-center mt-4 p-6 bg-indigo-50/50 rounded-lg border border-indigo-500 text-center text-indigo-400">
@@ -28,11 +28,14 @@
         {% endif %}
         <div class="mt-4 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {% for paymentRequest in paymentRequests %}
-            <div class="bg-white group relative p-4 rounded-lg border border-gray-500 shadow-md hover:shadow-xl">
+            <div class="bg-white group relative p-4 rounded-lg border border-gray-500 shadow-md hover:border-gray-900 hover:shadow-2xl">
                 <div class="w-full aspect-w-1 aspect-h-1 overflow-hidden">
+                    <img src="{{paymentRequest.product.imageUrl}}"
+                         alt="{{paymentRequest.paymentRequestUrl}}"
+                         class="w-full h-full object-center group-hover:hidden">
                     <img src="{{paymentRequest.paymentRequestQrCode}}"
                          alt="{{paymentRequest.paymentRequestUrl}}"
-                         class="w-full h-full object-center">
+                         class="w-full h-full object-center hidden group-hover:block">
                 </div>
                 <div class="mt-2 flex justify-between items-baseline">
                     <div>

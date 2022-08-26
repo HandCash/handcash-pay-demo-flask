@@ -14,23 +14,23 @@ headers = {
 url = "https://cloud.handcash.io/v2/paymentRequests"
 payload = {
     "product": {
-        "name": "Water · 200 ml",
-        "description": "200ml of filtered water",
-        "imageUrl": "https://www.indywaterpros.com/hs-fs/hubfs/2019-0~3-min.jpg?width=600&name=2019-0~3-min.jpg"
+        "name": "5L - O25 Drink Clean",
+        "description": "Enjoy your shot of pure water 💧 · 5000 ml",
+        "imageUrl": "https://docs.o25.eu/photos/water%20wallpaper.jpg"
     },
     "receivers": [
         {
-            "sendAmount": 0.2,
-            "currencyCode": "USD",
-            "destination": "rjseibane"
+            "sendAmount": 2.00,
+            "currencyCode": "EUR",
+            "destination": "o25drinkclean"
         }
     ],
     "requestedUserData": ["paymail"],  # Any of [paymail, email, phoneNumber]
     "notifications": {
         "webhook": {
             "customParameters": {
-                "fountainId": "madrid-0018",
-                "productId": "00002"
+                "fountainId": "davidlloyd-0001",
+                "productId": "05000"
             },
             "webhookUrl": "https://glacial-mountain-91065.herokuapp.com/webhooks/handcash"
         },
